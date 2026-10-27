@@ -71,4 +71,14 @@ reg z_log_Total c.Cog_Z_Cohort_w01 c.age0100_w01 i.sex_w01 if mysamp == 1, vce(c
 reg Cog_Z_Cohort_w01 c.medTotal_w01 if mysamp==1, vce(cluster fid)
 
 
+// Robustness Check 
+
+xtset fid
+foreach var in z_log_Total z_log_TV z_log_Net z_log_Game z_log_PcG z_log_Computer {
+    display "--- FE Model for: `var' ---"
+    xtreg z_Cog_Z_Cohort_w01 `var' [pw = svw0200], fe
+}
+
+
+
 
