@@ -65,8 +65,8 @@ save `_master_standardized'
 reg Cog_Z_Cohort_w01 c.z_log_Total c.age0100_w01 i.sex_w01, vce(cluster fid)
 reg z_log_Total c.Cog_Z_Cohort_w01 c.age0100_w01 i.sex_w01, vce(cluster fid)
 
-reg Cog_Z_Cohort_w01 c.z_log_Total c.age0100_w01 i.sex_w01 if mysamp == 1, vce(cluster fid)
-reg z_log_Total c.Cog_Z_Cohort_w01 c.age0100_w01 i.sex_w01 if mysamp == 1, vce(cluster fid)
+reg Cog_Z_Cohort_w01 c.z_log_Total c.age0100_w01 i.sex_w01 if mysamp == 1 [pw = svw0200], vce(cluster fid)
+reg z_log_Total c.Cog_Z_Cohort_w01 c.age0100_w01 i.sex_w01 if mysamp == 1 [pw = svw0200], vce(cluster fid)
 
 reg Cog_Z_Cohort_w01 c.medTotal_w01 if mysamp==1, vce(cluster fid)
 
